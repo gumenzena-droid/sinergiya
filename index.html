@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Метод синергии · Новый код развития риелтора</title>
+  <meta name="description" content="Авторская программа комплексной трансформации риелтора, объединяющая искусственный интеллект, создание персонального цифрового офиса, развитие мышления, духовность, раскрытие личностного потенциала и масштабирование бизнеса.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #f6f7fa;
+      --bg-secondary: #eceff5;
+      --text-primary: #0a0b0e;
+      --text-muted: rgba(10, 11, 14, 0.62);
+      --accent: #0a0b0e;
+      --ice-blue: #38bdf8;
+      --glass-bg: rgba(255, 255, 255, 0.78);
+      --glass-border: rgba(10, 11, 14, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Ultra-condensed brutalist display font matching Noomo Labs reference */
+    .font-display-condensed {
+      font-family: 'Anton', Impact, sans-serif;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+    }
+
+    .font-mono-code {
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* Subtle micro-dot studio canvas pattern like Noomo Labs */
+    .studio-dots {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-color: #f6f7fa;
+      background-image:
+        radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.96) 0%, rgba(235, 239, 247, 0.72) 55%, rgba(224, 230, 240, 0.85) 100%),
+        radial-gradient(rgba(10, 11, 14, 0.12) 1px, transparent 1px);
+      background-size: 100% 100%, 14px 14px;
+    }
+
+    /* WebGL Canvas sits above background typography so glass tiles refract the giant text behind */
+    #sphere-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Clean light glass cards for content sections */
+    .glass-panel {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card-hover:hover {
+      transform: translateY(-4px);
+      border-color: #0a0b0e;
+      box-shadow: 0 22px 48px -18px rgba(10, 11, 14, 0.16);
+    }
+
+    /* Solid high-contrast brutalist CTA */
+    .btn-dark {
+      background: #0a0b0e;
+      color: #ffffff;
+      font-weight: 500;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-dark:hover {
+      background: #1e222d;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px -8px rgba(10, 11, 14, 0.35);
+    }
+
+    /* Hold progress bar like bottom of Noomo Labs */
+    .hold-track {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(10, 11, 14, 0.55);
+      background: rgba(255, 255, 255, 0.65);
+      overflow: hidden;
+      padding: 1px;
+    }
+
+    .hold-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: #0a0b0e;
+      transition: width 0.06s linear;
+    }
+
+    header, main, footer {
+      position: relative;
+      z-index: 10;
+    }
+  .contact-links{display:flex;flex-wrap:wrap;gap:.65rem}.contact-links a{padding:.7rem 1rem;border:1px solid #1114;border-radius:100px}.contact-links a:first-child{background:#101116;color:white}.faq details{border-bottom:1px solid #1113;padding:1rem 0}.faq summary{cursor:pointer;font-weight:650}.faq details p{margin-top:.65rem}.glass-panel article p+p{margin-top:.65rem}
+    #philosophy {background:radial-gradient(ellipse at 12% 29%,#c6dcec 0%,transparent 51%),radial-gradient(ellipse at 90% 80%,#dcd4eb 0%,transparent 66%),linear-gradient(132deg,#f8fafc,#edf1f8)}
+    .team-glass {background:linear-gradient(146deg,#fff9,#fff1 52%,#f8f5ff69);border:1px solid #fff;backdrop-filter:blur(5px);box-shadow:inset 0 1px 1px #fff,inset 0 -2px 3px #9cafd75c,0 12px 28px #273b5f16;transition:background .3s ease,box-shadow .3s ease}
+    .team-glass:hover {background:linear-gradient(146deg,#fff9,#dceeff45 48%,#eee1f77d);box-shadow:inset 0 1px 2px #fff,inset 0 -2px 4px #a8a3d56b,0 13px 28px #273b5f23}
+    .team-glass p+p {margin-top:.65rem}
+
+    #hero {isolation:isolate}
+    body > header {position:relative;z-index:40}
+    .hero-art {position:relative;height:clamp(245px,62vw,420px);background:url("hero-city.webp") center 58% / contain no-repeat;mix-blend-mode:multiply;mask-image:radial-gradient(ellipse 67% 59% at 50% 52%,black 60%,transparent 100%)}
+    @media(min-width:1024px){.hero-art{height:clamp(380px,43vw,600px);margin-inline:-4% -6%;background-size:contain}}
+    @media(max-width:1023px){#hero .hero-art{margin-inline:-.8rem}}
+
+    .hero-jarvis{display:grid;grid-template-columns:clamp(100px,13vw,155px) minmax(0,1fr);align-items:center;gap:.65rem;margin-top:1.2rem;max-width:29rem;min-height:124px;border:1px solid #fff;border-radius:1.35rem;background:#ffffffa3;box-shadow:0 10px 28px #273b5f19}
+    .hero-jarvis-orb{height:clamp(104px,14vw,150px);background:radial-gradient(ellipse,#d9e9ff80,transparent 68%)}
+    .hero-jarvis-orb canvas{width:100%;height:100%;display:block}
+    .hero-jarvis-content{padding:.6rem .6rem .6rem 0}.hero-jarvis h2{font-weight:700;font-size:1.15rem}.hero-jarvis p{font-size:.85rem;margin-bottom:.45rem}
+    .hero-jarvis-duration{display:inline-block;margin-left:.25rem;color:#47566b;font-size:.8rem}
+    .hero-jarvis audio{max-width:100%;height:36px;margin-top:.45rem}.hero-jarvis audio.enhanced-player:not([data-started]){display:none}
+    .hero-jarvis #status:empty{display:none}
+
+.author-portrait{position:relative;isolation:isolate;overflow:hidden;background:#fff;box-shadow:0 18px 55px #23314d18}
+.author-portrait img{display:block;width:100%;height:auto;transition:transform .85s cubic-bezier(.2,.65,.25,1)}
+.author-portrait:hover img{transform:scale(1.035)}
+.author-portrait::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 35%,#e1ecff55 48%,transparent 64%);animation:author-light 10s ease-in-out infinite}
+@keyframes author-light{0%,36%{transform:translateX(-100%)}65%,100%{transform:translateX(100%)}}
+@media(prefers-reduced-motion:reduce){.author-portrait img{transition:none}.author-portrait:hover img{transform:none}.author-portrait::after{animation:none;display:none}}
+</style>
+<script defer src="evolution.js?v=method-synergy"></script><link rel="stylesheet" href="reviews.css"><script defer src="reviews.js"></script><script defer src="jarvis.js"></script><script defer src="jarvis-core.js"></script><link rel="stylesheet" href="benefits.css?v=responsive-2"><script defer src="events.js"></script><script defer src="benefits.js"></script><link rel="stylesheet" href="evolution.css?v=method-synergy"></head>
+<body>
+
+  <!-- Light Studio Dotted Backdrop -->
+  <div class="studio-dots"></div>
+
+  <!-- 3D WebGL Layer (Transparent Refracting Glass Sphere + Photorealistic Ice-White Diamond) -->
+
+
+  <!-- Minimalist Top Navigation matching [WORK] [AGENCY] [CONTACT] style -->
+  <header class="site-header fixed top-0 left-0 right-0 z-40 px-5 sm:px-10 py-5">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+      <a href="https://t.me/evolution_estate_club" class="flex items-baseline gap-1.5 group" aria-label="Эволюция риэлтора в Telegram">
+        <span class="font-display-condensed text-2xl sm:text-3xl tracking-tight text-[#0a0b0e]">Эволюция</span>
+        <span class="font-serif italic text-lg sm:text-xl text-[#0a0b0e]/75">риэлтора</span>
+      </a>
+
+      <nav aria-label="Разделы программы">
+        <a href="#program">Методология</a><a href="#philosophy">Цифровой офис</a><a href="#expert">Эксперты</a><a href="#map">Моя точка А</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="ev-button nav-cta" href="#apply">Начать свою эволюцию</a>
+      </div>
+    </div>
+    <nav class="mobile-nav" aria-label="Быстрые ссылки">
+      <a href="#program">Методология</a><a href="#philosophy">Офис</a><a href="#expert">Эксперты</a><a href="#map">Точка А</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION: White Studio + Giant Condensed Typography + Transparent Glass Sphere + Diamond -->
+    <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-20 pb-6 px-5 sm:px-10 select-none overflow-hidden">
+      <canvas id="sphere-canvas" aria-hidden="true"></canvas>
+      <!-- Top Subtitle -->
+      <div class="max-w-[1440px] w-full mx-auto flex justify-between items-center pt-2 font-mono-code text-[11px] uppercase tracking-widest text-[#0a0b0e]/60">
+        <span>HUMAN EVOLUTION × DIGITAL EVOLUTION</span>
+        <span class="hidden sm:inline" id="sphere-readout">СФЕРА: 0% РАСКРЫТИЯ</span>
+      </div>
+
+      <!-- Asymmetric Editorial Split Layout: Left Typography + Right 3D Crystal Sphere -->
+      <div class="max-w-[1440px] w-full mx-auto my-auto hero-layout grid grid-cols-1 lg:grid-cols-12 items-center gap-8 py-6">
+        <div class="hero-copy">
+          <h1 id="main-title">Метод<br>синергии</h1>
+          <p class="hero-program-name">Новый код развития риелтора</p>
+          <p class="hero-intro">Авторская программа комплексной трансформации риелтора, объединяющая искусственный интеллект, создание персонального цифрового офиса, развитие мышления, духовность, раскрытие личностного потенциала и масштабирование бизнеса.</p>
+          <div class="offer-actions"><a href="#apply" class="ev-button">Начать свою эволюцию</a><a href="#program" class="ev-button ev-outline">Смотреть методологию</a></div>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-duo" src="experts.webp" width="1024" height="1536" fetchpriority="high" alt="Елена Гумен и Екатерина Заонегина в белом и чёрном костюмах">
+        </div>
+        <div id="hero-art" class="hero-art" aria-hidden="true"><div class="hero-symbol"><img src="yin-yang-pearl.png" width="1254" height="1254" alt=""></div><div class="fallback-shell"></div></div>
+      </div>
+
+      <!-- Bottom Interactive Bar matching Noomo Labs ("ARE YOU READY..." + "CLICK AND HOLD" + progress pill) -->
+      <div class="max-w-[1440px] w-full mx-auto relative z-20 hero-sphere-controls">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-2.5">
+          <div>
+            <p class="font-display-condensed text-xl sm:text-2xl tracking-wide text-[#0a0b0e] uppercase leading-none">
+              Стеклянная сфера
+            </p>
+            <p class="text-xs sm:text-sm text-[#0a0b0e]/70 mt-1 max-w-xl">
+              Наведите курсор или удерживайте кнопку, чтобы раскрыть стеклянную оболочку.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 self-start sm:self-end">
+            <a href="#program" class="font-mono-code text-xs uppercase tracking-wider px-4 py-2 rounded-full border border-[#0a0b0e]/25 bg-white/80 hover:bg-[#0a0b0e] hover:text-white transition-colors">
+              ПРОГРАММА
+            </a>
+            <button type="button" id="hold-trigger" class="font-display-condensed text-lg sm:text-xl tracking-wider uppercase text-[#0a0b0e] hover:opacity-70 transition-opacity cursor-pointer">
+              НАЖМИТЕ И УДЕРЖИВАЙТЕ
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Pill Bar with Sound Toggle & Hold Progress Track -->
+        <div class="flex items-center gap-3">
+          <button id="sound-toggle" type="button" class="shrink-0 flex items-center gap-2 px-3 py-1 rounded-full bg-[#0a0b0e] text-white font-mono-code text-[10px] uppercase tracking-wider" title="Звук стекла">
+            <span class="w-3.5 h-3.5 rounded-full bg-white inline-block" id="sound-dot"></span>
+            <span id="sound-label">OFF</span>
+          </button>
+
+          <div class="hold-track flex-1">
+            <div class="hold-fill" id="hold-fill"></div>
+          </div>
+
+          <button type="button" id="burst-btn" class="shrink-0 w-7 h-7 rounded-full bg-[#0a0b0e] text-white flex items-center justify-center hover:scale-105 transition-transform" title="Раскрыть стеклянную сферу">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/><path d="M12 3a4.5 4.5 0 0 1 0 9 4.5 4.5 0 0 0 0 9"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+
+<section id="change" class="ev-section ev-light">
+  <div class="ev-editorial"><p class="ev-kicker">Эпоха перемен</p><div><h2>Опыт остаётся Вашим.<br>Меняется его масштаб.</h2><p class="ev-lead">Клиент по-прежнему приходит за ясностью, когда на кону его деньги, время и будущий дом. ИИ может собрать данные и подготовить варианты. Решение, которое учитывает жизнь конкретного человека, по-прежнему требует Вашего профессионального суждения.</p></div></div>
+</section>
+<section id="experience" class="ev-section ev-pearl">
+  <p class="ev-kicker">Парадокс профессионального опыта</p><h2>Можно вести сложные сделки и оставаться незаметным.</h2>
+  <p class="ev-lead">Опыт становится видимым, когда Вы умеете объяснять свою ценность, делиться тем, что знаете, и освобождать для этого время.</p>
+  <table class="experience-table">
+    <thead><tr><th scope="col">Что говорит риелтор</th><th scope="col">С чем работаем в программе</th></tr></thead>
+    <tbody>
+      <tr><td>«Я 20 лет в недвижимости, но зарабатываю меньше некоторых новичков»</td><td>Монетизация экспертности</td></tr>
+      <tr><td>«Я вообще не дружу с техникой»</td><td>Цифровая уверенность</td></tr>
+      <tr><td>«У меня нет времени вести соцсети»</td><td>Автоматизация контента</td></tr>
+      <tr><td>«Не люблю себя на видео»</td><td>Проявленность</td></tr>
+      <tr><td>«Мне неудобно говорить о своих успехах»</td><td>Самоценность и публичность</td></tr>
+      <tr><td>«Клиенты приходят только по сарафану»</td><td>Дополнительные каналы привлечения</td></tr>
+      <tr><td>«Я не умею себя продавать»</td><td>Продажи и переговоры</td></tr>
+      <tr><td>«Боюсь даже регистрироваться в новых сервисах»</td><td>Преодоление технологических барьеров</td></tr>
+      <tr><td>«Всё приходится делать самой»</td><td>Делегирование цифровым сотрудникам</td></tr>
+      <tr><td>«Я много работаю, но доход не растёт»</td><td>Аудит бизнес-модели и точек роста</td></tr>
+    </tbody>
+  </table>
+  <p class="ev-lead terms">Ваш профессиональный опыт — капитал. В программе Вы учитесь эффективнее использовать его в контенте, переговорах и развитии бизнеса.</p>
+</section>
+<section id="unity" class="ev-section ev-dark">
+  <p class="ev-kicker">Инь-Ян профессионального развития</p><h2>Будущее начинается там, где технологии встречаются с глубиной личности.</h2>
+  <div class="unity-layout">
+    <button type="button" class="unity-art" aria-label="Переключить направление эволюции"><img src="yin-yang.png" width="874" height="664" loading="lazy" alt=""></button>
+    <div><div class="ev-toggles" role="group" aria-label="Направление эволюции">
+      <button type="button" data-unity="human" aria-pressed="true">HUMAN EVOLUTION</button>
+      <button type="button" data-unity="digital" aria-pressed="false">DIGITAL EVOLUTION</button>
+    </div>
+    <div class="ev-glass unity-copy" aria-live="polite"><h3 id="unity-title">Внутренняя эволюция</h3><p id="unity-copy">Определяете свои ориентиры, работаете с технологическими страхами и учитесь проявляться в профессии с опорой на свой опыт и ценности.</p></div>
+    <p class="unity-principle">Инь-Ян — философский и визуальный символ единства человеческого потенциала и технологических возможностей.</p></div>
+  </div>
+</section>
+<section id="program" class="ev-section ev-light">
+  <p class="ev-kicker">Авторская методология</p><h2>Метод синергии</h2>
+  <p class="ev-lead">Мало дать риелтору мощные инструменты. Важно помочь ему начать ими пользоваться, опираться на собственную экспертность и превращать профессиональные знания в реальные бизнес-результаты.</p>
+  <p class="ev-lead">Можно подготовить сильный контент и откладывать публикацию из-за страха оценки. Можно настроить цифрового сотрудника по продажам и по-прежнему стесняться назвать цену своих услуг. Поэтому в программе обе трансформации идут одновременно.</p>
+  <p class="ev-lead">HUMAN EVOLUTION × DIGITAL EVOLUTION — два фундаментальных вектора развития.</p>
+  <div class="ev-grid evolution-tracks">
+    <article><h3>HUMAN EVOLUTION</h3><p>Мышление, самоценность, проявленность, продажи и масштаб личности.</p></article>
+    <article><h3>DIGITAL EVOLUTION</h3><p>Цифровая грамотность, искусственный интеллект, контент-система, цифровые сотрудники и автоматизация.</p></article>
+  </div>
+  <p class="evolution-outcome"><strong>Новый код развития риелтора</strong><span>Экспертность · Технологии · Бизнес</span></p>
+  <p class="ev-lead">Выберите направление практики, чтобы увидеть, как внутренняя работа связана с конкретным профессиональным действием.</p>
+  <div class="method-layout">
+    <div id="method-choices" class="method-choices" role="group" aria-label="Шесть измерений эволюции"></div>
+    <div id="method-detail" class="ev-glass method-detail" aria-live="polite">
+      <h3>IDENTITY · Идентичность</h3><p>Сформулируйте, кому, с чем и на каких принципах Вы помогаете. Соберите позиционирование и основу брендбука для Вашего цифрового офиса.</p>
+    </div>
+  </div>
+</section>
+<section id="philosophy" class="benefits-section city-section" aria-labelledby="city-title">
+  <div class="city-heading"><p class="ev-kicker">DIGITAL EVOLUTION</p><h2 id="city-title">Ваш будущий цифровой офис</h2><p class="ev-lead">Выберите этаж башни и загляните в кабинеты. Цифровые сотрудники берут на себя подготовку и рутину, чтобы у Вас оставалось больше времени на решения, людей и жизнь вне работы.</p></div>
+  <iframe class="city-frame" title="Интерактивный цифровой офис КОНТУР" src="cinematic/index.html?v=responsive-2" loading="lazy"></iframe>
+  <div class="city-heading">
+              <section id="jarvis" class="hero-jarvis pointer-events-auto" aria-labelledby="hero-jarvis-title">
+            <div class="hero-jarvis-orb" aria-hidden="true"><canvas id="core"></canvas></div>
+            <div class="hero-jarvis-content">
+              <h2 id="hero-jarvis-title">Джарвис</h2>
+              <p>Елена Гумен о цифровом офисе · архивная запись</p>
+              <button class="btn-dark rounded-full px-4 py-2 text-sm font-semibold" id="listen" type="button" hidden>Прослушать запись</button>
+              <span class="hero-jarvis-duration">12:35</span>
+              <p id="status" role="status"></p>
+              <audio id="voice" controls preload="none" src="jarvis-intro.m4a" aria-label="Архивная запись о цифровом офисе"></audio>
+            </div>
+          </section>
+
+    <p class="archive-note"><a href="jarvis.html">Открыть Джарвиса и архив исходной программы</a></p>
+  </div>
+</section>
+<section id="mission" class="ev-section ev-dark">
+  <div class="ev-editorial manifesto">
+    <p class="ev-kicker">Философский манифест</p>
+    <div>
+      <h2>Технологии расширяют возможности человека.</h2>
+      <p>Мышление определяет масштаб их реализации.</p>
+      <p>Миссия наполняет этот масштаб смыслом.</p>
+      <p>Синергия объединяет всё в единое целое.</p>
+    </div>
+  </div>
+  <div class="ev-editorial"><p class="ev-kicker">Миссия и смыслы</p><div><h2>В каждой сделке<br>есть чья-то жизнь.</h2><p class="ev-lead">За выбором квартиры могут стоять переезд, забота о близких или годы накоплений. Ваша работа помогает человеку принять решение, с которым ему предстоит жить. Внутренняя опора, ясные принципы и этика помогают сохранять это внимание, даже когда растёт число задач. Технологии возвращают время, которое можно уделить людям.</p></div></div>
+</section>
+<section id="expert" class="ev-section ev-pearl">
+  <p class="ev-kicker">Совместная программа</p><h2>Два эксперта.<br>Единая философия.</h2>
+  <div class="expert-layout">
+    <figure class="author-portrait"><img src="experts.webp" alt="Елена Гумен и Екатерина Заонегина" width="1024" height="1536" loading="lazy"></figure>
+    <div class="expert-roles">
+      <article>
+        <p class="ev-kicker">DIGITAL EVOLUTION</p>
+        <h3>Елена Гумен</h3>
+        <p>Действующий риелтор и инвест-брокер. 25+ лет в предпринимательстве, более 10 ниш — от международной торговли до общепита. Высшее экономическое образование.</p>
+        <p>5+ лет в недвижимости, более 150 сделок. Максимум — 16 сделок за месяц. 80% сделок проходят дистанционно.</p>
+        <p>В программе отвечает за внедрение ИИ, автоматизацию и создание персонального цифрового офиса риелтора.</p>
+      </article>
+      <article>
+        <p class="ev-kicker">HUMAN EVOLUTION</p>
+        <h3>Екатерина Заонегина</h3>
+        <p>Профессор, доктор наук, трижды лауреат премии губернатора за научную деятельность.</p>
+        <p>Психолог и коуч, специализируется на работе с профессионалами в сфере недвижимости. 1 800 часов практики.</p>
+        <p>Соавтор программы. Помогает участникам работать с внутренними барьерами, увереннее говорить о своей экспертности и продавать свои услуги.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="journey" class="ev-section ev-light">
+  <p class="ev-kicker">Точка А и точка Б</p><h2>Как меняется Ваша рабочая неделя</h2>
+  <div class="journey-table" role="region" aria-label="Точка А и точка Б" tabindex="0"><table><thead><tr><th scope="col">Измерение</th><th scope="col">Точка А</th><th scope="col">Точка Б</th></tr></thead><tbody>
+  <tr><th scope="row">Мышление</th><td>Сложно выбрать, куда направить усилия.</td><td>Есть критерии выбора и план первого шага.</td></tr>
+  <tr><th scope="row">Цифровая уверенность</th><td>ИИ пробуете от случая к случаю.</td><td>Есть проверенный сценарий на своей задаче.</td></tr>
+  <tr><th scope="row">Публичность</th><td>Кейсы и идеи остаются в переписках.</td><td>Есть позиционирование и контент-план из реального опыта.</td></tr>
+  <tr><th scope="row">Продажи</th><td>Ценность услуги приходится объяснять заново.</td><td>Вы уверенно называете объём работы и можете объяснить, за что платит клиент.</td></tr>
+  <tr><th scope="row">Организация бизнеса</th><td>Типовые задачи завязаны на Вас.</td><td>Роли сотрудников описаны, результаты можно проверить.</td></tr>
+  <tr><th scope="row">Качество жизни</th><td>Рутина занимает время для отдыха и стратегии.</td><td>Вы видите, что можно передать, и замеряете высвобожденное время.</td></tr>
+  </tbody></table></div>
+</section>
+<section id="map" class="ev-section ev-dark">
+  <h2>Моя точка А</h2>
+  <p class="ev-lead">Оцените шесть навыков от 1 до 5. На Вашей карте будет видно, на что Вы уже можете опереться, где есть резерв роста и над чем стоит поработать на курсе.</p>
+  <form id="map-form">
+    <div id="map-questions" class="ev-grid map-grid"></div>
+    <label class="map-situation">Что сейчас происходит в Вашей работе?
+      <textarea name="situation" rows="3" maxlength="400" placeholder="Например, клиенты приходят по рекомендациям, а на контент не хватает времени."></textarea>
+    </label>
+    <button class="ev-button ev-white" type="submit">Показать мою карту</button>
+  </form>
+  <div id="map-result" class="ev-glass map-result" hidden tabindex="-1" aria-live="polite"></div>
+</section>
+<section id="formats" class="ev-section ev-pearl">
+  <h2>План программы</h2>
+  <p class="ev-lead terms"><strong>8 недель</strong> · <strong>50 000 ₽</strong></p>
+  <ol class="ev-grid program-plan">
+    <li><article><h3>Разрешение на большее</h3><p><strong>Мышление.</strong> Диагностика точки А, страх нового, ограничивающие установки и профессиональная самоценность.</p><p><strong>Технологии.</strong> Настройка цифровой среды, освоение ChatGPT с нуля и первые ИИ-ассистенты.</p><p><strong>Результат.</strong> Вы самостоятельно решаете первые задачи с ИИ и определяете приоритеты развития.</p></article></li>
+    <li><article><h3>Право быть заметным</h3><p><strong>Мышление.</strong> Страх оценки, синдром самозванца, проявленность и перфекционизм.</p><p><strong>Технологии.</strong> Личный бренд, брендбук, цифровая фабрика контента, нейрофотосессии, видео и сторителлинг.</p><p><strong>Результат.</strong> Собственная контент-система и первые опубликованные материалы.</p></article></li>
+    <li><article><h3>Право зарабатывать больше</h3><p><strong>Мышление.</strong> Денежные установки, страх отказа, уверенность в переговорах и ценность собственных услуг.</p><p><strong>Технологии.</strong> Лид-магниты, воронки, цифровой тренажёр продаж, работа с возражениями и подготовка коммерческих предложений.</p><p><strong>Результат.</strong> Материалы для привлечения клиентов и отработанный сценарий переговоров.</p></article></li>
+    <li><article><h3>Архитектор своего бизнеса</h3><p><strong>Мышление.</strong> Предпринимательская позиция, делегирование, ответственность и масштабирование.</p><p><strong>Технологии.</strong> Сборка персонального цифрового офиса, команда ИИ-сотрудников, бизнес-процессы и показатели эффективности.</p><p><strong>Результат.</strong> Цифровой офис с распределёнными ролями и понятными критериями качества.</p></article></li>
+  </ol>
+  <div class="offer-actions">
+    <a class="ev-button" href="#apply">Обсудить участие</a>
+    <a class="ev-button ev-outline" href="method-synergy.pdf" download="Метод синергии.pdf">Скачать презентацию (PDF)</a>
+  </div>
+</section>
+    <section id="reviews" class="reviews-section">
+      <div class="reviews-wrap">
+        <div class="reviews-heading">
+          <div><h2 class="font-display-condensed">Отзывы предыдущих участников</h2>
+          <p>Об обучении, личном бренде и первых шагах с ИИ.</p></div>
+          <a class="reviews-all" href="https://t.me/otzivi_elena_gumen">Прочитать все отзывы</a>
+        </div>
+        <div class="reviews-grid"><a class="review-card" href="reviews/review-1.webp"><img src="reviews/review-1.webp" alt="Скриншот отзыва 1" width="924" height="1279" loading="lazy"><span>Открыть отзыв</span></a><a class="review-card" href="reviews/review-2.webp"><img src="reviews/review-2.webp" alt="Скриншот отзыва 2" width="655" height="1280" loading="lazy"><span>Поняла, как применять ИИ в работе</span></a><a class="review-card" href="reviews/review-3.webp"><img src="reviews/review-3.webp" alt="Скриншот отзыва 3" width="987" height="1145" loading="lazy"><span>Упаковал личный бренд и получил идеи для контента</span></a><a class="review-card" href="reviews/review-4.webp"><img src="reviews/review-4.webp" alt="Скриншот отзыва 4" width="1057" height="1273" loading="lazy"><span>Открыть отзыв</span></a><a class="review-card" href="reviews/review-5.webp"><img src="reviews/review-5.webp" alt="Скриншот отзыва 5" width="1180" height="1172" loading="lazy"><span>Открыть отзыв</span></a><a class="review-card" href="reviews/review-6.webp"><img src="reviews/review-6.webp" alt="Скриншот отзыва 6" width="1077" height="1278" loading="lazy"><span>Поделилась опытом работы с AI-ассистентом</span></a><a class="review-card" href="reviews/review-7.webp"><img src="reviews/review-7.webp" alt="Скриншот отзыва 7" width="535" height="926" loading="lazy"><span>Открыть отзыв</span></a><a class="review-card" href="reviews/review-8.webp"><img src="reviews/review-8.webp" alt="Скриншот отзыва 8" width="531" height="1207" loading="lazy"><span>Увидела свои сильные стороны в брендбуке</span></a></div>
+      </div>
+      <dialog class="review-dialog" aria-label="Просмотр отзыва">
+        <button type="button" aria-label="Закрыть отзыв">Закрыть</button>
+        <img alt="">
+      </dialog>
+    </section>
+
+<section id="apply" class="ev-section ev-dark final-section">
+  <div class="final-layout">
+    <div><p class="ev-kicker">Новый код развития риелтора</p><h2>Будущее — это не выбор между человеком и технологиями. Это их гармоничное единство.</h2><p class="ev-lead">Расскажите, чего хотите от следующего этапа в профессии. Мы обсудим, какие навыки, инструменты и изменения в рабочих процессах могут приблизить Вас к этой цели.</p></div>
+    <form id="application" class="ev-glass application">
+      <h3>Заявка на участие</h3>
+      <p>8 недель · 50 000 ₽</p>
+      <label>Ваше имя<input name="name" autocomplete="name" required maxlength="80"></label>
+      <label>Над чем хотите поработать?<textarea name="goal" rows="3" maxlength="450" placeholder="Например, собрать цифровую команду и увереннее вести переговоры"></textarea></label>
+      <label id="share-map" hidden class="check-line"><input type="checkbox" name="map"> Добавить приоритеты из моей карты</label>
+      <button class="ev-button ev-white" type="submit">Продолжить в Telegram</button>
+      <p id="application-status" role="status">Откроется чат с Еленой и черновик заявки. Отправьте его в Telegram.</p>
+      <a href="https://max.ru/u/f9LHodD0cOIrdDq9lHuw89YvLucKKpRPgYVImkzUoALuNixoEcBbSnYnT1I">Написать в MAX</a>
+    </form>
+  </div>
+</section>
+  </main>
+  <footer class="py-10 px-5 sm:px-10 bg-white border-t border-black/10 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono-code text-xs text-black/65">
+      <span>© 2026 «МЕТОД СИНЕРГИИ». АВТОРСКАЯ ПРОГРАММА.</span>
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-black transition-colors">Наверх</a>
+        <a href="#apply" data-consultation="footer" class="hover:text-black transition-colors">Связаться</a>
+      </div>
+    </div>
+  <div style="max-width:90rem;margin:1rem auto 0;padding-top:1rem;border-top:1px solid #77819544;font-size:.92rem;line-height:1.6">
+  <strong>ИП Гумен Елена Леонидовна</strong><br>
+  ИНН 253400673187 · ОГРНИП 324237500462927<br>
+  <a href="privacy.html" style="text-decoration:underline">Политика обработки персональных данных</a>
+</div></footer>
+
+  <script>
+    let audioCtx = null;
+    let soundEnabled = false;
+    let lastChimeTime = 0;
+
+    function playCrystalChime(intensity = 0.5) {
+      if (!soundEnabled || !audioCtx) return;
+      const now = performance.now();
+      if (now - lastChimeTime < 140) return;
+      lastChimeTime = now;
+
+      const freqs = [587.33, 659.25, 783.99, 987.77, 1174.66, 1318.51];
+      const freq = freqs[Math.floor(Math.random() * freqs.length)];
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(Math.min(0.045, 0.018 * intensity), audioCtx.currentTime + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.65);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.68);
+    }
+
+    document.getElementById('sound-toggle').addEventListener('click', function() {
+      soundEnabled = !soundEnabled;
+      if (soundEnabled && !audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const label = document.getElementById('sound-label');
+      const dot = document.getElementById('sound-dot');
+      if (label) label.textContent = soundEnabled ? 'ON' : 'OFF';
+      if (dot) {
+        dot.style.backgroundColor = soundEnabled ? '#38bdf8' : '#ffffff';
+      }
+      if (soundEnabled) playCrystalChime(1.0);
+    });
+
+    // Pure white-silver studio environment texture with subtle architectural skyline refraction
+    function createStudioBackdropTexture() {
+      const c = document.createElement('canvas');
+      c.width = 1024;
+      c.height = 1024;
+      const ctx = c.getContext('2d');
+
+      const grad = ctx.createRadialGradient(512, 512, 40, 512, 512, 560);
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(0.55, '#f6f9ff');
+      grad.addColorStop(1, '#eaf1fc');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, c.width, c.height);
+
+      const tex = new THREE.CanvasTexture(c);
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
+      return tex;
+    }
+
+    // Exact Tolkowsky Round Brilliant Cut (57 Facets, wide bright table & crisp crown/pavilion)
+
+    function createCurvedGlassShellShards(radius, thickness) {
+      const shells = [];
+      const latBands = 6;
+      const lonCounts = [8, 12, 14, 14, 12, 8];
+      const latGap = 0.028;
+      const lonGap = 0.028;
+
+      for (let b = 0; b < latBands; b++) {
+        const theta0 = (b / latBands) * Math.PI + latGap;
+        const theta1 = ((b + 1) / latBands) * Math.PI - latGap;
+        const nLon = lonCounts[b];
+
+        for (let s = 0; s < nLon; s++) {
+          const phi0 = (s / nLon) * Math.PI * 2 + lonGap;
+          const phi1 = ((s + 1) / nLon) * Math.PI * 2 - lonGap;
+
+          const thetaMid = (theta0 + theta1) * 0.5;
+          const phiMid = (phi0 + phi1) * 0.5;
+          const center = new THREE.Vector3(
+            radius * Math.sin(thetaMid) * Math.cos(phiMid),
+            radius * Math.cos(thetaMid),
+            radius * Math.sin(thetaMid) * Math.sin(phiMid)
+          );
+
+          const segU = 6;
+          const segV = 4;
+          const rOut = radius + thickness * 0.5;
+          const rIn = radius - thickness * 0.5;
+
+          const positions = [];
+          const normals = [];
+          const isEdge = []; // 1.0 on beveled glass edges, 0.0 on main clear face
+
+          const pointOnSphere = (r, th, ph) => new THREE.Vector3(
+            r * Math.sin(th) * Math.cos(ph),
+            r * Math.cos(th),
+            r * Math.sin(th) * Math.sin(ph)
+          );
+
+          const pushQuad = (p00, p10, p11, p01, n00, n10, n11, n01, edgeFlag) => {
+            const tri1 = [p00, p10, p11];
+            const nTri1 = [n00, n10, n11];
+            const tri2 = [p00, p11, p01];
+            const nTri2 = [n00, n11, n01];
+
+            [tri1, tri2].forEach((tri, tIdx) => {
+              const nArr = tIdx === 0 ? nTri1 : nTri2;
+              for (let k = 0; k < 3; k++) {
+                positions.push(tri[k].x - center.x, tri[k].y - center.y, tri[k].z - center.z);
+                normals.push(nArr[k].x, nArr[k].y, nArr[k].z);
+                isEdge.push(edgeFlag);
+              }
+            });
+          };
+
+          for (let iv = 0; iv < segV; iv++) {
+            const v0 = iv / segV;
+            const v1 = (iv + 1) / segV;
+            const thA = theta0 + (theta1 - theta0) * v0;
+            const thB = theta0 + (theta1 - theta0) * v1;
+
+            for (let iu = 0; iu < segU; iu++) {
+              const u0 = iu / segU;
+              const u1 = (iu + 1) / segU;
+              const phA = phi0 + (phi1 - phi0) * u0;
+              const phB = phi0 + (phi1 - phi0) * u1;
+
+              const n00 = pointOnSphere(1, thA, phA);
+              const n10 = pointOnSphere(1, thA, phB);
+              const n11 = pointOnSphere(1, thB, phB);
+              const n01 = pointOnSphere(1, thB, phA);
+
+              // Outer face
+              pushQuad(
+                pointOnSphere(rOut, thA, phA),
+                pointOnSphere(rOut, thA, phB),
+                pointOnSphere(rOut, thB, phB),
+                pointOnSphere(rOut, thB, phA),
+                n00, n10, n11, n01, 0.0
+              );
+
+              // Inner face
+              pushQuad(
+                pointOnSphere(rIn, thA, phB),
+                pointOnSphere(rIn, thA, phA),
+                pointOnSphere(rIn, thB, phA),
+                pointOnSphere(rIn, thB, phB),
+                n10.clone().negate(), n00.clone().negate(), n01.clone().negate(), n11.clone().negate(), 0.0
+              );
+            }
+          }
+
+          // Thick beveled perimeter walls (catch light & chromatic dispersion like thick crystal glass)
+          for (let iu = 0; iu < segU; iu++) {
+            const phA = phi0 + (phi1 - phi0) * (iu / segU);
+            const phB = phi0 + (phi1 - phi0) * ((iu + 1) / segU);
+
+            const nTop = new THREE.Vector3(-Math.cos(theta0) * Math.cos((phA + phB) * 0.5), Math.sin(theta0), -Math.cos(theta0) * Math.sin((phA + phB) * 0.5)).normalize();
+            pushQuad(
+              pointOnSphere(rIn, theta0, phA),
+              pointOnSphere(rIn, theta0, phB),
+              pointOnSphere(rOut, theta0, phB),
+              pointOnSphere(rOut, theta0, phA),
+              nTop, nTop, nTop, nTop, 1.0
+            );
+
+            const nBot = nTop.clone().negate();
+            pushQuad(
+              pointOnSphere(rOut, theta1, phA),
+              pointOnSphere(rOut, theta1, phB),
+              pointOnSphere(rIn, theta1, phB),
+              pointOnSphere(rIn, theta1, phA),
+              nBot, nBot, nBot, nBot, 1.0
+            );
+          }
+
+          for (let iv = 0; iv < segV; iv++) {
+            const thA = theta0 + (theta1 - theta0) * (iv / segV);
+            const thB = theta0 + (theta1 - theta0) * ((iv + 1) / segV);
+
+            const nLeft = new THREE.Vector3(Math.sin(phi0), 0, -Math.cos(phi0)).normalize();
+            pushQuad(
+              pointOnSphere(rOut, thA, phi0),
+              pointOnSphere(rOut, thB, phi0),
+              pointOnSphere(rIn, thB, phi0),
+              pointOnSphere(rIn, thA, phi0),
+              nLeft, nLeft, nLeft, nLeft, 1.0
+            );
+
+            const nRight = new THREE.Vector3(-Math.sin(phi1), 0, Math.cos(phi1)).normalize();
+            pushQuad(
+              pointOnSphere(rIn, thA, phi1),
+              pointOnSphere(rIn, thB, phi1),
+              pointOnSphere(rOut, thB, phi1),
+              pointOnSphere(rOut, thA, phi1),
+              nRight, nRight, nRight, nRight, 1.0
+            );
+          }
+
+          const geom = new THREE.BufferGeometry();
+          geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+          geom.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
+          geom.setAttribute('aIsEdge', new THREE.Float32BufferAttribute(isEdge, 1));
+
+          shells.push({
+            geom,
+            center,
+            outDir: center.clone().normalize(),
+            rotAxis: new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize()
+          });
+        }
+      }
+
+      return shells;
+    }
+
+    function initSphereWebGL() {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelector('.hero-sphere-controls').hidden = true;
+        document.getElementById('sphere-readout').hidden = true;
+        return;
+      }
+      if (typeof THREE === 'undefined') { initSphereFallback(); return; }
+      const canvas = document.getElementById('sphere-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'default' });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, innerWidth < 768 ? 1.15 : 1.6));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(0, 0.12, 7.2);
+      camera.lookAt(0, -0.02, 0);
+
+      const rootGroup = new THREE.Group();
+      scene.add(rootGroup);
+
+      // 1. Inner Yin–Yang symbol
+      const symbolGroup = new THREE.Group();
+      symbolGroup.scale.setScalar(0.68);
+      rootGroup.add(symbolGroup);
+
+      // 2. Outer Ultra-Transparent Refracting Glass Sphere (matching Noomo Labs)
+      const glassSphereGroup = new THREE.Group();
+      rootGroup.add(glassSphereGroup);
+
+      // Keep the glass shards inside the sphere’s own layout area.
+      const heroArt = document.getElementById('hero-art');
+      const artRay = new THREE.Vector3();
+      function updateRootLayout() {
+        const bounds = heroArt.getBoundingClientRect();
+        const inset = [
+          bounds.top, innerWidth - bounds.right, innerHeight - bounds.bottom, bounds.left
+        ].map(value => Math.max(0, value));
+        canvas.style.clipPath = `inset(${inset.map(value => value + 'px').join(' ')})`;
+        const x = (bounds.left + bounds.width / 2) / window.innerWidth * 2 - 1;
+        const y = 1 - (bounds.top + bounds.height / 2) / window.innerHeight * 2;
+        artRay.set(x, y, .5).unproject(camera).sub(camera.position);
+        const distance = -camera.position.z / artRay.z;
+        rootGroup.position.copy(camera.position).addScaledVector(artRay, distance);
+        rootGroup.scale.setScalar(Math.min(bounds.width, bounds.height) / window.innerHeight * .88);
+        rootGroup.visible = bounds.bottom > 0 && bounds.top < window.innerHeight;
+      }
+
+      const studioBackdropTex = createStudioBackdropTexture();
+      const sparkleAnchors = Array.from({length: 18}, (_, index) => {
+        const angle = index / 18 * Math.PI * 2;
+        const normal = new THREE.Vector3(Math.cos(angle), Math.sin(angle), 0.18).normalize();
+        return {normal, pos: normal.clone().multiplyScalar(1.1)};
+      });
+
+      const sharedVertexShader = `
+        attribute float aIsEdge;
+        varying vec3 vWorldNormal;
+        varying vec3 vWorldPos;
+        varying vec4 vClipPos;
+        varying float vIsEdge;
+        void main() {
+          vIsEdge = aIsEdge;
+          vec4 worldPos = modelMatrix * vec4(position, 1.0);
+          vWorldPos = worldPos.xyz;
+          vWorldNormal = normalize(mat3(modelMatrix) * normal);
+          vClipPos = projectionMatrix * viewMatrix * worldPos;
+          gl_Position = vClipPos;
+        }
+      `;
+
+      const image = new Image();
+      image.onload = () => {
+        const map = new THREE.Texture(image);
+        map.needsUpdate = true;
+        map.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+        const face = new THREE.MeshBasicMaterial({
+          map, transparent: true, alphaTest: .015, side: THREE.DoubleSide
+        });
+        symbolGroup.add(new THREE.Mesh(new THREE.PlaneGeometry(2.24, 2.24), face));
+        document.getElementById('hero').classList.add('sphere-ready');
+      };
+      image.src = 'yin-yang-pearl.png';
+
+      // Soft contact shadow directly underneath the symbol on the white studio floor
+      const shadowCanvas = document.createElement('canvas');
+      shadowCanvas.width = 256;
+      shadowCanvas.height = 256;
+      const sCtx = shadowCanvas.getContext('2d');
+      const sGrad = sCtx.createRadialGradient(128, 128, 8, 128, 128, 120);
+      sGrad.addColorStop(0, 'rgba(15, 23, 42, 0.22)');
+      sGrad.addColorStop(0.45, 'rgba(15, 23, 42, 0.07)');
+      sGrad.addColorStop(1, 'rgba(15, 23, 42, 0.0)');
+      sCtx.fillStyle = sGrad;
+      sCtx.fillRect(0, 0, 256, 256);
+      const shadowPlane = new THREE.Mesh(
+        new THREE.PlaneGeometry(2.6, 2.6),
+        new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(shadowCanvas), transparent: true, depthWrite: false })
+      );
+      shadowPlane.rotation.x = -Math.PI / 2;
+      shadowPlane.position.y = -1.24;
+      symbolGroup.add(shadowPlane);
+
+      // Ultra-Transparent Refracting Glass Sphere Material (Noomo Labs crystal clear glass tiles!)
+      const glassCityMap = new THREE.TextureLoader().load('hero-city.webp', () => {
+        glassShellUniforms.uCityReady.value = 1;
+      });
+      const glassShellUniforms = {
+        uTime: { value: 0 },
+        uBackdrop: { value: studioBackdropTex },
+        uCity: { value: glassCityMap },
+        uCityReady: { value: 0 },
+        uCityBounds: { value: new THREE.Vector4() }
+      };
+
+      const glassShellMat = new THREE.ShaderMaterial({
+        uniforms: glassShellUniforms,
+        vertexShader: sharedVertexShader,
+        fragmentShader: `
+          uniform float uTime;
+          uniform sampler2D uBackdrop;
+          uniform sampler2D uCity;
+          uniform vec4 uCityBounds;
+          uniform float uCityReady;
+          vec3 sampleBackground(vec2 uv) {
+            vec2 city = (uv-uCityBounds.xy)/max(uCityBounds.zw,vec2(.001));
+            vec2 bounds = smoothstep(vec2(0.),vec2(.08),city) * (1.-smoothstep(vec2(.92),vec2(1.),city));
+            vec3 studio = texture2D(uBackdrop,uv).rgb;
+            float neutral = dot(studio,vec3(.2126,.7152,.0722));
+            return mix(vec3(neutral),texture2D(uCity,clamp(city,0.,1.)).rgb,bounds.x*bounds.y*uCityReady);
+          }
+
+          varying vec3 vWorldNormal;
+          varying vec3 vWorldPos;
+          varying vec4 vClipPos;
+          varying float vIsEdge;
+
+          void main() {
+            vec3 N = normalize(vWorldNormal);
+            vec3 V = normalize(cameraPosition - vWorldPos);
+            float NdotV = abs(dot(N, V));
+
+            // Screen UV of this glass tile + optical refraction offset based on curved normal
+            vec2 screenUV = (vClipPos.xy / vClipPos.w) * 0.5 + 0.5;
+            vec3 viewNormal = normalize(mat3(viewMatrix) * N);
+
+            // Subtle chromatic optical shift across the clear glass pane
+            float iorShift = 0.018 + vIsEdge * 0.02;
+            vec2 uvR = clamp(screenUV - viewNormal.xy * (iorShift * 1.08), 0.01, 0.99);
+            vec2 uvG = clamp(screenUV - viewNormal.xy * iorShift, 0.01, 0.99);
+            vec2 uvB = clamp(screenUV - viewNormal.xy * (iorShift * 0.92), 0.01, 0.99);
+
+            vec3 refractedScene = vec3(
+              sampleBackground(uvR).r,
+              sampleBackground(uvG).g,
+              sampleBackground(uvB).b
+            );
+
+            // Clean Fresnel edge definition without any dark/black reflections
+            float fresnel = pow(1.0 - NdotV, 3.0);
+
+            // Delicate rainbow dispersion shimmer along thin beveled glass edges
+            float prismPhase = NdotV * 6.0 + vWorldPos.y * 2.0 + vWorldPos.x * 1.4;
+            vec3 prism = 0.72 + 0.28 * cos(6.28318 * (prismPhase + vec3(0.0, 0.33, 0.67)));
+
+            // Studio white softbox highlights on glass curvature
+            vec3 L1 = normalize(vec3(2.2, 4.4, 3.5));
+            vec3 L2 = normalize(vec3(-3.0, 2.5, 2.8));
+            float spec1 = pow(max(dot(N, normalize(L1 + V)), 0.0), 160.0) * 1.3;
+            float spec2 = pow(max(dot(N, normalize(L2 + V)), 0.0), 95.0) * 0.75;
+
+            // Pure, crystal-clear light glass tiles
+            vec3 col = mix(refractedScene, vec3(0.99, 0.985, 0.98), 0.06);
+            col = mix(col, vec3(0.21,0.23,0.26), fresnel * 0.29);
+            col = mix(col, prism, (vIsEdge * 0.10 + fresnel * 0.045));
+            col += vec3(spec1 + spec2);
+
+            float alpha = clamp(
+              0.08 + fresnel * 0.40 + vIsEdge * 0.54 + (spec1 + spec2) * 0.70,
+              0.08,
+              0.87
+            );
+
+            gl_FragColor = vec4(col, alpha);
+          }
+        `,
+        transparent: true,
+        side: THREE.DoubleSide,
+        depthWrite: false
+      });
+
+      const rawShells = createCurvedGlassShellShards(1.76, 0.026);
+      const glassShards = rawShells.map((s, idx) => {
+        const mesh = new THREE.Mesh(s.geom, glassShellMat);
+        mesh.position.copy(s.center);
+        glassSphereGroup.add(mesh);
+
+        const jitter = new THREE.Vector3(
+          (Math.random() - 0.5) * 0.36,
+          (Math.random() - 0.5) * 0.36,
+          (Math.random() - 0.5) * 0.36
+        );
+
+        return {
+          mesh,
+          basePos: s.center.clone(),
+          outDir: s.outDir.clone().add(jitter).normalize(),
+          rotAxis: s.rotAxis,
+          currentDisp: 0,
+          velDisp: 0,
+          phase: idx * 0.31,
+          weight: 0.82 + Math.random() * 0.38
+        };
+      });
+
+      // Subtle crisp white-silver glints on the symbol rim
+      const glintCount = sparkleAnchors.length;
+      const gPos = new Float32Array(glintCount * 3);
+      const gIntensity = new Float32Array(glintCount);
+      for (let i = 0; i < glintCount; i++) {
+        gPos[i * 3] = sparkleAnchors[i].pos.x;
+        gPos[i * 3 + 1] = sparkleAnchors[i].pos.y;
+        gPos[i * 3 + 2] = sparkleAnchors[i].pos.z;
+      }
+      const glintGeom = new THREE.BufferGeometry();
+      glintGeom.setAttribute('position', new THREE.BufferAttribute(gPos, 3));
+      const glintIntensityAttr = new THREE.BufferAttribute(gIntensity, 1);
+      glintGeom.setAttribute('aIntensity', glintIntensityAttr);
+
+      const glintMat = new THREE.ShaderMaterial({
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        vertexShader: `
+          attribute float aIntensity;
+          varying float vIntensity;
+          void main() {
+            vIntensity = aIntensity;
+            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+            gl_PointSize = (18.0 + aIntensity * 58.0) * (5.5 / -mvPosition.z);
+            gl_Position = projectionMatrix * mvPosition;
+          }
+        `,
+        fragmentShader: `
+          varying float vIntensity;
+          void main() {
+            if (vIntensity < 0.05) discard;
+            vec2 uv = gl_PointCoord - vec2(0.5);
+            float d = length(uv);
+            float core = exp(-d * 14.0);
+            float spikeH = exp(-abs(uv.y) * 52.0) * exp(-abs(uv.x) * 4.5);
+            float spikeV = exp(-abs(uv.x) * 52.0) * exp(-abs(uv.y) * 4.5);
+            float flare = (core + spikeH + spikeV) * vIntensity;
+            gl_FragColor = vec4(vec3(0.95, 0.98, 1.0) * flare, clamp(flare, 0.0, 0.95));
+          }
+        `
+      });
+      symbolGroup.add(new THREE.Points(glintGeom, glintMat));
+
+      // Interaction state: Mouse proximity + Click-and-Hold progress bar (like Noomo Labs)
+      const mouse = new THREE.Vector2(99, 99);
+      const smoothMouse = new THREE.Vector2(0, 0);
+      let cursorSpeed = 0;
+      let lastMouse = new THREE.Vector2(0, 0);
+      let isHoveringCenter = false;
+      let isHolding = false;
+      let holdProgress = 0; // 0..1
+      let burstPulse = 0;
+
+      const updatePointer = (clientX, clientY) => {
+        const nx = (clientX / window.innerWidth) * 2 - 1;
+        const ny = -(clientY / window.innerHeight) * 2 + 1;
+        const dx = nx - lastMouse.x;
+        const dy = ny - lastMouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        cursorSpeed = Math.min(1.5, cursorSpeed + dist * 4.2);
+        lastMouse.set(nx, ny);
+        mouse.set(nx, ny);
+        const bounds = heroArt.getBoundingClientRect();
+        const radius = Math.min(bounds.width, bounds.height) * .37;
+        isHoveringCenter = Math.hypot(clientX - bounds.left - bounds.width / 2, clientY - bounds.top - bounds.height / 2) < radius;
+        if (dist > 0.035 && isHoveringCenter) {
+          playCrystalChime(dist * 7);
+        }
+      };
+
+      window.addEventListener('mousemove', (e) => updatePointer(e.clientX, e.clientY), { passive: true });
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches[0]) updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+
+      const heroEl = document.getElementById('hero');
+      const holdTrigger = document.getElementById('hold-trigger');
+      const holdFill = document.getElementById('hold-fill');
+
+      const startHold = (e) => {
+        if (e.target.closest('a, input, #sound-toggle')) return;
+        isHolding = true;
+        playCrystalChime(0.9);
+      };
+      const endHold = () => {
+        isHolding = false;
+      };
+
+      heroEl.addEventListener('mousedown', startHold);
+      heroEl.addEventListener('touchstart', startHold, { passive: true });
+      holdTrigger.addEventListener('mousedown', startHold);
+      holdTrigger.addEventListener('touchstart', startHold, { passive: true });
+      window.addEventListener('mouseup', endHold);
+      window.addEventListener('touchend', endHold);
+      window.addEventListener('touchcancel', endHold);
+      window.addEventListener('blur', endHold);
+      holdTrigger.addEventListener('keydown', event => {
+        if (event.key === ' ' || event.key === 'Enter') {
+          event.preventDefault();
+          if (!event.repeat) startHold(event);
+        }
+      });
+      holdTrigger.addEventListener('keyup', endHold);
+
+      document.getElementById('burst-btn').addEventListener('click', () => {
+        burstPulse = burstPulse > 0.3 ? 0 : 1.65;
+        playCrystalChime(1.0);
+      });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        updateRootLayout();
+      });
+
+      const readoutEl = document.getElementById('sphere-readout');
+      const clock = new THREE.Clock();
+      const tmpNormal = new THREE.Vector3();
+      const tmpWorldShard = new THREE.Vector3();
+      let wasVisible = false;
+      const lightDirA = new THREE.Vector3(0.45, 0.65, 0.62).normalize();
+      const lightDirB = new THREE.Vector3(-0.55, 0.5, 0.66).normalize();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const dt = Math.min(clock.getDelta(), 0.05);
+        const t = clock.elapsedTime;
+        updateRootLayout();
+        if (!rootGroup.visible && !wasVisible) return;
+        wasVisible = rootGroup.visible;
+
+        cursorSpeed *= Math.pow(0.08, dt);
+        burstPulse *= Math.pow(0.32, dt);
+
+        if (isHolding) {
+          holdProgress = Math.min(1, holdProgress + dt * 0.75);
+        } else {
+          holdProgress = Math.max(0, holdProgress - dt * 1.15);
+        }
+        if (holdFill) holdFill.style.width = `${Math.round(holdProgress * 100)}%`;
+
+        smoothMouse.x += ((mouse.x > 10 ? 0 : mouse.x) - smoothMouse.x) * 0.06;
+        smoothMouse.y += ((mouse.y > 10 ? 0 : mouse.y) - smoothMouse.y) * 0.06;
+
+        if (glassShellUniforms.uCityReady.value) {
+          const bounds = heroArt.getBoundingClientRect();
+          const ratio = glassCityMap.image.width / glassCityMap.image.height;
+          const width = Math.min(bounds.width, bounds.height * ratio);
+          const height = width / ratio;
+          glassShellUniforms.uCityBounds.value.set(
+            (bounds.left + (bounds.width-width)*.5)/innerWidth,
+            1-(bounds.top+(bounds.height-height)*.58+height)/innerHeight,
+            width/innerWidth,height/innerHeight);
+        }
+
+        // The Yin–Yang symbol rotates smoothly inside the transparent glass sphere
+        symbolGroup.rotation.y = t * 0.34 + smoothMouse.x * 0.5;
+        symbolGroup.rotation.x = 0.24 + Math.sin(t * 0.45) * 0.05 - smoothMouse.y * 0.3;
+
+        // Outer segmented glass sphere counter-rotates and tracks cursor
+        glassSphereGroup.rotation.y = -t * 0.14 + smoothMouse.x * 0.65;
+        glassSphereGroup.rotation.x = Math.sin(t * 0.32) * 0.1 - smoothMouse.y * 0.42;
+        glassSphereGroup.updateMatrixWorld();
+
+        const centerProx = isHoveringCenter ? 0.35 : 0.0;
+        const globalTarget = Math.min(2.1, cursorSpeed * 0.9 + centerProx + holdProgress * 1.65 + burstPulse);
+
+        let avgDisp = 0;
+        for (let i = 0; i < glassShards.length; i++) {
+          const s = glassShards[i];
+
+          tmpWorldShard.copy(s.basePos).applyMatrix4(glassSphereGroup.matrixWorld);
+          const screenProj = tmpWorldShard.project(camera);
+          const distToCursor = mouse.x < 10 ? Math.hypot(screenProj.x - mouse.x, screenProj.y - mouse.y) : 99;
+          const localCursorPush = Math.max(0, 1.0 - distToCursor / 0.52) * 0.95;
+
+          const wave = Math.sin(t * 2.0 + s.phase) * 0.06 * globalTarget;
+          const target = Math.max(0, (globalTarget + localCursorPush + wave) * s.weight);
+
+          const force = (target - s.currentDisp) * 26.0;
+          s.velDisp = (s.velDisp + force * dt) * Math.pow(0.06, dt);
+          s.currentDisp = Math.max(0, s.currentDisp + s.velDisp * dt);
+
+          // Leave clearance around the glass even at full expansion.
+          const offset = Math.min(.45, s.currentDisp * .45);
+          s.mesh.position.copy(s.basePos).addScaledVector(s.outDir, offset);
+          s.mesh.setRotationFromAxisAngle(s.rotAxis, s.currentDisp * 1.35);
+          avgDisp += s.currentDisp;
+        }
+        avgDisp /= glassShards.length;
+
+        const q = symbolGroup.quaternion;
+        for (let i = 0; i < sparkleAnchors.length; i++) {
+          tmpNormal.copy(sparkleAnchors[i].normal).applyQuaternion(q);
+          const flashA = Math.pow(Math.max(0, tmpNormal.dot(lightDirA)), 28.0);
+          const flashB = Math.pow(Math.max(0, tmpNormal.dot(lightDirB)), 24.0);
+          const shimmer = 0.5 + 0.5 * Math.sin(t * 4.2 + i * 2.1);
+          gIntensity[i] = Math.min(1.0, (flashA * 1.2 + flashB * 0.9) * shimmer);
+        }
+        glintIntensityAttr.needsUpdate = true;
+
+        glassShellUniforms.uTime.value = t;
+
+        const pct = Math.min(100, Math.round(avgDisp * 65));
+        if (readoutEl) readoutEl.textContent = `СФЕРА: ${pct}% РАСКРЫТИЯ`;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      try { initSphereWebGL(); }
+      catch { initSphereFallback(); }
+    });
+  </script>
+</body>
+</html>

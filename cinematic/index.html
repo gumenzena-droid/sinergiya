@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#141b2a">
+<title>КОНТУР · Цифровой офис риэлтора</title>
+<link rel="stylesheet" href="office.css?v=responsive-2">
+<script defer src="../department-data.js"></script>
+<script defer src="office.js"></script>
+<script defer src="../events.js"></script></head>
+<body>
+<main aria-label="Цифровая штаб-квартира КОНТУР">
+  <div class="scene">
+    <div class="city">
+      <img src="city.webp" alt="Стеклянная штаб-квартира среди небоскрёбов, площадей и садов">
+    </div>
+    <header class="identity">
+      <span>КОНТУР</span>
+      <h1>Цифровой офис<br>риэлтора</h1>
+    </header>
+    <nav class="floors" aria-label="Отделы штаб-квартиры">
+      <button data-department="5" style="--floor:17%">Пульт управления</button>
+      <button data-department="4" style="--floor:36%">Лаборатория бренда</button>
+      <button data-department="2" style="--floor:48%">Фабрика контента</button>
+      <button data-department="1" style="--floor:60%">Отдел лидогенерации</button>
+      <button data-department="0" style="--floor:72%">Отдел продаж</button>
+      <button data-department="3" style="--floor:85%">Переговорный полигон</button>
+    </nav>
+    <footer>Выберите отдел, чтобы войти</footer>
+    <div class="veil" aria-hidden="true"></div>
+    <dialog aria-labelledby="room-title">
+      <img class="room-image" alt="">
+      <article class="panel">
+        <header>
+          <button class="back" type="button">Назад к штаб-квартире</button>
+        </header>
+        <div class="reading" tabindex="0" aria-label="Описание отдела">
+          <p class="room-code"></p>
+          <h2 id="room-title"></h2>
+          <div class="room-copy"></div>
+          <a class="cta" href="https://t.me/Elena_Gumen" target="_blank" rel="noopener">Получить план своего цифрового офиса</a>
+        </div>
+      </article>
+    </dialog>
+  </div>
+</main>
+</body>
+</html>
